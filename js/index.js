@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function getProducts() {
   try {
-    const response = await fetch("http://localhost:5501/data.json", {
+    const response = await fetch("../data.json", {
       method: "GET",
       mode: "cors",
     });
@@ -169,7 +169,7 @@ async function displayProducts(products) {
         class="btn btn-primary shop-item-button"
         onclick="addToCart(this.id,'${p.id}')"
         >
-      add to cart
+        ${inCart(p.id) ? "item in cart" : "add to cart"}
         </button>
       </div>
     </div>
@@ -217,9 +217,6 @@ async function displayCart() {
   });
 
   if (CART.cartItems && cartContainer && ProductsContainer) {
-    // hide some cart section elements, if cart empty
-    //handleCartSectionVisibility();
-    //cartContainer.innerHTML = "";
     updateCartTotal();
     cartContainer.innerHTML = cartOutput;
     cartTotalContainer.innerText = `$${CART.cartTotal}`;
@@ -228,11 +225,6 @@ async function displayCart() {
 
 // ELEMENTS LOADED ON PAGE LOAD
 function loadAllInputElements() {
-  // const quantityInputs = document.getElementsByClassName("cart-quantity-input");
-  // for (let i = 0; i < quantityInputs.length; i++) {
-  //   var input = quantityInputs[i];
-  //   input.addEventListener("change", handleQuantityChange);
-  // }
   // add to cart
   const addToCartBtns = document.getElementsByClassName("shop-item-button");
   for (let i = 0; i < addToCartBtns.length; i++) {
@@ -242,12 +234,7 @@ function loadAllInputElements() {
       button.innerText = "yellow";
     });
   }
-  //handleCartSectionVisibility();
 }
-
-// functionChangeBg(data-id){
-
-//   let value = el.getAttribute("data-id");
 
 // handle cart section element show
 function handleCartSectionVisibility() {
@@ -349,12 +336,7 @@ function inCart(id) {
   CART.cartSync();
   return itemCart;
 }
-async function inCart2(id) {
-  let itemCart = CART.cartItems.some((item) => item.id === id);
-  //let itemCart2 = PRODUCTS.total.some((item) => item.id === id);
-  CART.cartSync();
-  return itemCart;
-}
+
 // MAKE PAYMENT
 function handleItemPurchase() {
   if (CART.cartItems.length < 1) {
@@ -364,20 +346,5 @@ function handleItemPurchase() {
     setTimeout(() => {
       window.location.href = "/success.html";
     }, 2000);
-  }
-}
-function replaceButtonText(buttonId, text) {
-  if (document.getElementById) {
-    var button = document.getElementById(buttonId);
-    if (button) {
-      if (button.childNodes[0]) {
-        button.childNodes[0].nodeValue = text;
-      } else if (button.value) {
-        button.value = text;
-      } //if (button.innerHTML)
-      else {
-        button.innerHTML = text;
-      }
-    }
   }
 }
