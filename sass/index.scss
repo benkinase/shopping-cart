@@ -1,0 +1,358 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
+@import "utilities/_variables.scss";
+@import "utilities/_mixins.scss";
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.main__wrapper {
+  min-height: 100%;
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 2.5rem;
+}
+
+.underline__section__header {
+  @include underline(12rem, 5px, $mainGrey);
+}
+.underline__shop__name {
+  @include underline(16rem, 5px, $nice-red);
+}
+.underline__nav_items {
+  @include underline(100%, 2px, $mainGrey);
+}
+/*HEADER SECTION*/
+.nav ul {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  li {
+    list-style: none;
+  }
+
+  li a {
+    padding: 0.5em 0.2em;
+    color: $white-night;
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  a:hover:not(.cart__link_page) {
+    background-color: $mainGrey;
+    color: $nice-red;
+  }
+}
+
+.main__nav {
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: lighter;
+  li {
+    padding: 0 5%;
+  }
+  .fab,
+  .fa {
+    color: $primary;
+    font-size: 20px;
+  }
+}
+
+.cart__value__container {
+  width: 100%;
+  padding: 5px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .cart__link__page {
+    span {
+      &:hover {
+        background-color: red;
+      }
+    }
+  }
+}
+#cart__count {
+  background-color: $primary;
+  padding: 2px 6.5px;
+  border-radius: 50%;
+  font-weight: bold;
+  color: $nice-red;
+}
+
+.main__header {
+  background-color: $mainBlack;
+  background-image: url("../images/Header\ Background.jpg");
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-bottom: 30px;
+}
+
+.shop__name {
+  text-align: center;
+  margin: 0;
+  font-size: 4em;
+  font-family: "Poppins", san serif;
+  font-weight: normal;
+  color: $white-night;
+  text-transform: capitalize;
+}
+
+.shop__name__large {
+  font-size: 12vw;
+}
+
+/*MAIN SECTION*/
+.content__section {
+  margin: 1em;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 2rem auto;
+  padding: 0 1.5em;
+  color: $mainBlack;
+}
+.section__header {
+  font-family: sans-serif;
+  font-weight: normal;
+  text-align: center;
+  font-size: 3.3rem;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+}
+/*BUTTONS*/
+
+.btn-primary {
+  @include base-button(auto, 2px, $nice-blue, $primary);
+}
+.btn-secondary {
+  @include base-button(auto, 2px, $nice-yellow, $nice-green);
+}
+
+.btn-tertiary {
+  @include base-button(50%, 2px, $mainGrey, $nice-purple);
+  font-size: 1.2em;
+}
+
+/*ITEMS DISPLAY*/
+.shop-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.shop__items {
+  background-color: $white-night;
+  @include grid(repeat(auto-fill, minmax(350px, 1fr)), auto, 20px);
+  //grid-template-columns: repeat(auto-fill, 350px);
+}
+.shop__item {
+  @include shop-item(auto);
+}
+
+.shop-item-title {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
+
+.shop-item-image {
+  width: 100%;
+  height: 250px;
+}
+
+.shop-item-details {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.shop-item-price {
+  flex-grow: 1;
+  font-weight: 800;
+}
+
+//CART SECTION
+.cart__header {
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+.cart-column {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $mainBlack;
+  margin-right: 1.5em;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
+.cart-row {
+  display: flex;
+}
+
+.cart-item {
+  width: 45%;
+}
+
+.cart-price {
+  width: 20%;
+  font-size: 1.2em;
+}
+
+.cart-quantity {
+  width: 35%;
+}
+
+.cart-item-title {
+  margin-left: 0.5em;
+  font-size: clamp(0.5em, 1em, 1.2em);
+}
+
+.cart-item-image {
+  width: 75px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.btn-danger {
+  @include base-button(auto, 0.3em, $nice-red, $nice-blue);
+}
+
+.btn-danger:hover {
+  opacity: 0.85;
+}
+.cart_item__count {
+  font-weight: 700;
+}
+// default version only
+#cart_item_change {
+  height: 33px;
+  width: 50px;
+  background-color: $primary;
+  border-radius: 5px;
+  margin: 0 5px;
+  &:focus {
+    outline: none;
+    border: 1px solid $nice-green;
+  }
+}
+.cart-quantity-input {
+  height: 33px;
+  width: 50px;
+  border-radius: 5px;
+  border: 1px solid $nice-blue;
+  background-color: $primary;
+  padding: 0;
+  text-align: center;
+  font-size: 1.2em;
+  margin: 0 15px;
+  &:focus {
+    outline: none;
+    border: 1px solid $nice-green;
+  }
+}
+
+.cart-row:last-child {
+  border-bottom: 1px solid $mainBlack;
+}
+
+.cart-row:last-child .cart-column {
+  border: none;
+}
+.cart__pay_clear_buttons {
+  width: 100%;
+  place-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 20px;
+}
+.cart-total {
+  text-align: end;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.cart-total-title {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-right: 20px;
+}
+.total__underline {
+  @include underline(50px, 2px, $nice-red);
+}
+
+.cart-total-price {
+  font-size: 1.1em;
+  font-weight: bolder;
+}
+
+// SUCCESS MESSAGE
+.success__message {
+  background-color: $primary;
+  height: auto;
+  min-width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+
+  h3,
+  p {
+    color: $mainBlack;
+    padding: 5px;
+  }
+  h3 {
+    font-size: 22px;
+    font-weight: 800;
+  }
+}
+
+//FOOTER SECTION
+.main__footer {
+  background-color: $nice-blue;
+  color: $primary;
+  padding: 0.25em 0;
+  bottom: 0;
+
+  width: 100%;
+}
+
+.main__footer__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  text-align: end;
+  ul {
+    display: flex;
+  }
+  li {
+    padding: 0 0.5em;
+    list-style: none;
+  }
+  .fab,
+  .fa {
+    color: $primary;
+    font-size: 20px;
+  }
+}

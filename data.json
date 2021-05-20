@@ -1,0 +1,79 @@
+{
+  "music": [
+    {
+      "id": "mu_1",
+      "type": "music",
+      "name": "styled components",
+      "count": 1,
+      "price": 339.99,
+      "inCart": false,
+      "image": "./images/cassette.jpg"
+    },
+    {
+      "id": "mu_2",
+      "type": "music",
+      "name": "optional chaining",
+      "count": 1,
+      "price": 129.29,
+      "inCart": false,
+      "image": "./images/cassette__1.jpg"
+    },
+    {
+      "id": "mu_3",
+      "type": "music",
+      "name": "spread operator",
+      "count": 1,
+      "price": 669.99,
+      "inCart": false,
+      "image": "./images/cover.jpg"
+    },
+    {
+      "id": "mu_4",
+      "type": "music",
+      "name": "nullish coalecing",
+      "count": 1,
+      "price": 999.99,
+      "inCart": false,
+      "image": "./images/cover__1.jpg"
+    },
+    {
+      "id": "mu_5",
+      "type": "music",
+      "name": "function factory",
+      "count": 1,
+      "price": 999.99,
+      "inCart": false,
+      "image": "./images/cover__1.jpg"
+    }
+  ],
+
+  "merch": [
+    {
+      "id": "me_1",
+      "type": "merch",
+      "name": "T-Shirt",
+      "count": 1,
+      "price": 669.99,
+      "inCart": false,
+      "image": "./images/t-shirt.jpg"
+    },
+    {
+      "id": "me_2",
+      "type": "merch",
+      "name": "coffee cup",
+      "count": 1,
+      "price": 999.99,
+      "inCart": false,
+      "image": "./images/Cofee.jpg"
+    },
+    {
+      "id": "me_2",
+      "type": "merch",
+      "name": "coffee",
+      "count": 1,
+      "price": 999.99,
+      "inCart": false,
+      "image": "./images/Cofee.jpg"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+// Reusables
+@mixin border($color, $style, $weight) {
+  border: $color, $style, $weight;
+}
+
+@mixin box($width, $height, $bgColor) {
+  width: $width;
+  height: $height;
+  padding: 10px;
+  background-color: $bgColor;
+}
+@mixin product($args...) {
+  width: $args;
+  height: $args;
+  padding: $args;
+  background-color: $args;
+}
+@mixin flex($span, $direction: "") {
+  display: flex;
+  align-items: center;
+  justify-content: $span;
+  flex-direction: $direction;
+}
+@mixin grid($cols, $rows, $gap) {
+  display: grid;
+  grid-template-rows: $rows;
+  grid-template-columns: $cols;
+  gap: $gap;
+}
+@mixin green-text {
+  color: #05c7ad;
+}
+@mixin underline($width, $height, $bgColor) {
+  width: $width;
+  height: $height;
+  background-color: $bgColor;
+  margin: 0.5rem auto;
+}
+@mixin base-button($width, $radius, $bgColor, $color) {
+  width: $width;
+  background-color: $bgColor;
+  color: $color;
+  border: none;
+  border-radius: $radius;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: center;
+  vertical-align: middle;
+  transition: all 0.4s linear;
+  padding: 0.67em 0.67em;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.85;
+  }
+}
+@mixin shop-item($width) {
+  width: $width;
+  margin: 30px;
+  border: 1px solid $primary;
+  padding: 10px;
+}
+
+@mixin fine-box($bg, $color) {
+  @if ($bg: "red") {
+    $color: "red";
+  } @else {
+    $color: "blue";
+  }
+}
