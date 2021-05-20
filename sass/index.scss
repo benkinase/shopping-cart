@@ -225,6 +225,7 @@ body {
 .cart-item-title {
   margin-left: 0.5em;
   font-size: clamp(0.5em, 1em, 1.2em);
+  text-overflow: ellipsis;
 }
 
 .cart-item-image {
