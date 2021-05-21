@@ -9,44 +9,44 @@
     <script src="./js/index.js" defer></script>
   </head>
   <body>
-
-      <header class="main__header">
-        <nav class="main__nav nav">
-          <ul class="nav__links">
-            <li><a href="index.html">home</a></li>
-            <li class="cart__link">
-              <div class="cart__value__container">
-                <i class="fa fa-shopping-cart"></i>
-                <span id="cart__count">0</span>
-              </div>
-            </li>
-          </ul>
-          <div class="underline__nav_items"></div>
-        </nav>
-        <h2 class="shop__name shop__name__large">greenwall</h2>
-      </header>
-      <main class="main__wrapper">
+    <header class="main__header">
+      <nav class="main__nav nav">
+        <ul class="nav__links">
+          <li><a href="index.html">home</a></li>
+          <li class="cart__link" onclick="gotoCart()">
+            <div class="cart__value__container">
+              <i class="fa fa-shopping-cart"></i>
+              <span id="cart__count">0</span>
+            </div>
+          </li>
+        </ul>
+        <div class="underline__nav_items"></div>
+      </nav>
+      <h2 class="shop__name shop__name__large">greenwall</h2>
+    </header>
+    <main class="main__wrapper">
       <section class="container content__section" id="auth__section">
         <h2 class="section__header">Login</h2>
         <div class="underline__section__header"></div>
 
-       <div class="form__container">
-        <form action="#" class="auth__form">
-          <div class="input__control">
-            <input type="text" placeholder="Username" />
-          </div>
-          <div class="input__control">
-            <input type="password" placeholder="Password" />
-          </div>
-          <div class="input__control">
-            <button class="auth__button">Login</button>
-          </div>
-        </form>
-       </div>
+        <div class="form__container">
+          <form action="#" class="auth__form">
+            <div class="input__control">
+              <small></small>
+              <input type="text" name="username" placeholder="Username" />
+            </div>
+            <div class="input__control">
+              <small></small>
+              <input type="password" name="password" placeholder="Password" />
+            </div>
+            <div class="input__control">
+              <button class="auth__button">login</button>
+            </div>
+          </form>
+        </div>
       </section>
     </main>
-    </body>
-  </main>
+
     <footer class="main__footer">
       <div class="container main__footer__container">
         <div class="shop__name__footer">

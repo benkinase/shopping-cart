@@ -14,10 +14,8 @@ body {
 }
 
 .main__wrapper {
-  min-height: 100%;
-  position: relative;
   min-height: 100vh;
-  padding-bottom: 2.5rem;
+  position: relative;
 }
 
 /*HEADER SECTION*/
@@ -49,7 +47,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
+
     li {
       list-style: none;
     }
@@ -61,13 +59,17 @@ body {
       letter-spacing: 2px;
       text-transform: uppercase;
     }
-    a:hover:not(.cart__link_page) {
+    a:hover {
       background-color: $mainGrey;
       color: $nice-red;
     }
   }
-
+  // CART VALUE/LENGTH
   .cart__link {
+    cursor: pointer;
+    &:hover {
+      opacity: 0.7;
+    }
     .cart__value__container {
       width: 100%;
       padding: 5px;
@@ -78,11 +80,10 @@ body {
 
       .fa-shopping-cart {
         color: $nice-red;
-        font-size: 20px;
+        font-size: 25px;
       }
       #cart__count {
         padding: 3px 3px;
-        border-radius: 50%/10%;
         font-weight: bold;
         color: $primary;
         position: absolute;
@@ -118,7 +119,7 @@ body {
 }
 //footer
 .underline__shop__name {
-  @include underline(16rem, 5px, $nice-red, 5px);
+  @include underline(17rem, 7px, $nice-red, 5px);
 }
 
 /*MAIN SECTION*/
@@ -143,7 +144,7 @@ body {
 /*BUTTONS*/
 
 .btn-primary {
-  @include base-button(auto, 2px, $nice-blue, $nice-yellow);
+  @include base-button(auto, 2px, $nice-blue, $nice-red);
 }
 .btn-secondary {
   @include base-button(auto, 2px, $nice-yellow, $nice-green);
@@ -303,15 +304,13 @@ body {
 
 // SUCCESS MESSAGE
 .success__message {
-  background-color: $primary;
   height: auto;
-  min-width: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 10px;
-
+  @include media-box();
   h3,
   p {
     color: $mainBlack;
@@ -346,32 +345,34 @@ body {
       }
     }
     .icon {
-      color: $primary;
+      color: $nice-blue;
+      background-color: $nice-red;
       transition: $mainTransition;
+      border-radius: 50%/20%;
+      padding: 3px;
       font-size: 20px;
       cursor: pointer;
       &:hover {
-        color: $social-icon;
+        color: $primary;
       }
     }
   }
 }
 
 .form__container {
-  width: 100%;
-  margin: 2rem auto;
-  background-color: $primary;
   padding: 20px 5px;
   text-align: center;
+  @include media-box();
 
   input {
     width: 80%;
     margin: 5px;
-    padding: 10px;
+    padding: 10px 0;
     border: none;
     outline: none;
     &::placeholder {
       letter-spacing: 2px;
+      padding-left: 5px;
     }
     &:focus {
       border: 2px, solid, $nice-green;
@@ -381,11 +382,7 @@ body {
 
   button {
     margin-top: 20px;
-    @include base-button(80%, 2px, $nice-yellow, $nice-green);
-  }
-}
-@media screen and (min-width: 750px) {
-  .form__container {
-    width: 50%;
+    font-size: 18px;
+    @include base-button(80%, 2px, $nice-blue, $nice-yellow);
   }
 }

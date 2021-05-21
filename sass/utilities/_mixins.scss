@@ -9,6 +9,14 @@
   padding: 10px;
   background-color: $bgColor;
 }
+@mixin media-box() {
+  width: 100%;
+  margin: 2rem auto;
+  background-color: $primary;
+  @media screen and (min-width: 750px) {
+    width: 50%;
+  }
+}
 @mixin product($args...) {
   width: $args;
   height: $args;
@@ -54,7 +62,7 @@
   padding: 0.67em 0.67em;
   cursor: pointer;
   &:hover {
-    opacity: 0.85;
+    opacity: 0.8;
   }
 }
 @mixin shop-item($width) {

@@ -355,6 +355,9 @@ function gotoHome() {
 function gotoSuccess() {
   window.location.href = "/success.html";
 }
+function gotoCart() {
+  window.location.href = "/cart.html";
+}
 
 // PRODUCT DETAILS
 async function getProduct(id) {

@@ -11,10 +11,8 @@ body {
 }
 
 .main__wrapper {
-  min-height: 100%;
-  position: relative;
   min-height: 100vh;
-  padding-bottom: 2.5rem;
+  position: relative;
 }
 
 /*HEADER SECTION*/
@@ -55,7 +53,6 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 5px;
 }
 
 .main__header .nav ul li {
@@ -70,9 +67,17 @@ body {
   text-transform: uppercase;
 }
 
-.main__header .nav ul a:hover:not(.cart__link_page) {
+.main__header .nav ul a:hover {
   background-color: #a7b2be;
   color: #ff3232;
+}
+
+.main__header .cart__link {
+  cursor: pointer;
+}
+
+.main__header .cart__link:hover {
+  opacity: 0.7;
 }
 
 .main__header .cart__link .cart__value__container {
@@ -92,12 +97,11 @@ body {
 
 .main__header .cart__link .cart__value__container .fa-shopping-cart {
   color: #ff3232;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .main__header .cart__link .cart__value__container #cart__count {
   padding: 3px 3px;
-  border-radius: 50%/10%;
   font-weight: bold;
   color: #e1e7eb;
   position: absolute;
@@ -137,8 +141,8 @@ body {
 
 .underline__shop__name {
   border-radius: 5px;
-  width: 16rem;
-  height: 5px;
+  width: 17rem;
+  height: 7px;
   background-color: #ff3232;
   margin: 0.5rem auto;
 }
@@ -168,7 +172,7 @@ body {
 .btn-primary {
   width: auto;
   background-color: #054155;
-  color: #e29e0b;
+  color: #ff3232;
   border: none;
   border-radius: 2px;
   font-weight: bold;
@@ -183,7 +187,7 @@ body {
 }
 
 .btn-primary:hover {
-  opacity: 0.85;
+  opacity: 0.8;
 }
 
 .btn-secondary {
@@ -204,7 +208,7 @@ body {
 }
 
 .btn-secondary:hover {
-  opacity: 0.85;
+  opacity: 0.8;
 }
 
 .btn-tertiary {
@@ -226,7 +230,7 @@ body {
 }
 
 .btn-tertiary:hover {
-  opacity: 0.85;
+  opacity: 0.8;
 }
 
 /*ITEMS DISPLAY*/
@@ -357,7 +361,7 @@ body {
 }
 
 .btn-danger:hover {
-  opacity: 0.85;
+  opacity: 0.8;
 }
 
 .btn-danger:hover {
@@ -432,9 +436,7 @@ body {
 }
 
 .success__message {
-  background-color: #e1e7eb;
   height: auto;
-  min-width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -449,6 +451,15 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 10px;
+  width: 100%;
+  margin: 2rem auto;
+  background-color: #e1e7eb;
+}
+
+@media screen and (min-width: 750px) {
+  .success__message {
+    width: 50%;
+  }
 }
 
 .success__message h3,
@@ -498,47 +509,60 @@ body {
 }
 
 .main__footer .main__footer__container .icon {
-  color: #e1e7eb;
+  color: #054155;
+  background-color: #ff3232;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
+  border-radius: 50%/20%;
+  padding: 3px;
   font-size: 20px;
   cursor: pointer;
 }
 
 .main__footer .main__footer__container .icon:hover {
-  color: #e29e0b;
+  color: #e1e7eb;
 }
 
 .form__container {
+  padding: 20px 5px;
+  text-align: center;
   width: 100%;
   margin: 2rem auto;
   background-color: #e1e7eb;
-  padding: 20px 5px;
-  text-align: center;
+}
+
+@media screen and (min-width: 750px) {
+  .form__container {
+    width: 50%;
+  }
 }
 
 .form__container input {
   width: 80%;
   margin: 5px;
-  padding: 10px;
+  padding: 10px 0;
   border: none;
   outline: none;
 }
 
 .form__container input::-webkit-input-placeholder {
   letter-spacing: 2px;
+  padding-left: 5px;
 }
 
 .form__container input:-ms-input-placeholder {
   letter-spacing: 2px;
+  padding-left: 5px;
 }
 
 .form__container input::-ms-input-placeholder {
   letter-spacing: 2px;
+  padding-left: 5px;
 }
 
 .form__container input::placeholder {
   letter-spacing: 2px;
+  padding-left: 5px;
 }
 
 .form__container input:focus {
@@ -547,9 +571,10 @@ body {
 
 .form__container button {
   margin-top: 20px;
+  font-size: 18px;
   width: 80%;
-  background-color: #e29e0b;
-  color: #078612;
+  background-color: #054155;
+  color: #e29e0b;
   border: none;
   border-radius: 2px;
   font-weight: bold;
@@ -564,11 +589,5 @@ body {
 }
 
 .form__container button:hover {
-  opacity: 0.85;
-}
-
-@media screen and (min-width: 750px) {
-  .form__container {
-    width: 50%;
-  }
+  opacity: 0.8;
 }
