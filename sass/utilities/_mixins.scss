@@ -1,6 +1,6 @@
 // Reusables
-@mixin border($color, $style, $weight) {
-  border: $color, $style, $weight;
+@mixin border($weight, $style, $color) {
+  border: $weight $style, $color;
 }
 
 @mixin box($width, $height, $bgColor) {
@@ -30,7 +30,10 @@
 @mixin green-text {
   color: #05c7ad;
 }
-@mixin underline($width, $height, $bgColor) {
+@mixin underline($width, $height, $bgColor, $radius: "") {
+  @if $radius {
+    border-radius: $radius;
+  }
   width: $width;
   height: $height;
   background-color: $bgColor;

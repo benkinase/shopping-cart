@@ -9,11 +9,13 @@
     <script src="./js/index.js" defer></script>
   </head>
   <body>
-
+    <div class="main__wrapper">
       <header class="main__header">
         <nav class="main__nav nav">
           <ul class="nav__links">
             <li><a href="index.html">home</a></li>
+            <li><a href="cart.html">cart</a></li>
+            <li><a href="auth.html">login</a></li>
             <li class="cart__link">
               <div class="cart__value__container">
                 <i class="fa fa-shopping-cart"></i>
@@ -23,34 +25,19 @@
           </ul>
           <div class="underline__nav_items"></div>
         </nav>
-        <h2 class="shop__name shop__name__large">greenwall</h2>
+        <h2 class="shop__name shop__name__large">Greenwall</h2>
       </header>
-      <main class="main__wrapper">
-      <section class="container content__section" id="auth__section">
-        <h2 class="section__header">Login</h2>
-        <div class="underline__section__header"></div>
-
-       <div class="form__container">
-        <form action="#" class="auth__form">
-          <div class="input__control">
-            <input type="text" placeholder="Username" />
-          </div>
-          <div class="input__control">
-            <input type="password" placeholder="Password" />
-          </div>
-          <div class="input__control">
-            <button class="auth__button">Login</button>
-          </div>
-        </form>
-       </div>
+      <section class="container content__section" id="product__container">
+        <h2 class="product__">Product</h2>
+        <div class="product__detail" id="product">
+          <div id="product__detail"></div>
+        </div>
       </section>
-    </main>
-    </body>
-  </main>
+    </div>
     <footer class="main__footer">
       <div class="container main__footer__container">
         <div class="shop__name__footer">
-          <h2 class="shop__name">greenwall</h2>
+          <h3 class="shop__name">greenwall</h3>
           <div class="underline__shop__name"></div>
         </div>
         <ul class="nav footer__nav__links">

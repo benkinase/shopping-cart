@@ -5,7 +5,7 @@
       "type": "music",
       "name": "styled components",
       "count": 1,
-      "price": 339.99,
+      "price": 39.99,
       "inCart": false,
       "image": "./images/cassette.jpg"
     },
@@ -14,7 +14,7 @@
       "type": "music",
       "name": "optional chaining",
       "count": 1,
-      "price": 129.29,
+      "price": 9.99,
       "inCart": false,
       "image": "./images/cassette__1.jpg"
     },
@@ -23,16 +23,16 @@
       "type": "music",
       "name": "spread operator",
       "count": 1,
-      "price": 669.99,
+      "price": 12.99,
       "inCart": false,
       "image": "./images/cover.jpg"
     },
     {
       "id": "mu_4",
       "type": "music",
-      "name": "nullish coalecing",
+      "name": "nullish coalescing",
       "count": 1,
-      "price": 999.99,
+      "price": 24.99,
       "inCart": false,
       "image": "./images/cover__1.jpg"
     },
@@ -41,7 +41,7 @@
       "type": "music",
       "name": "function factory",
       "count": 1,
-      "price": 999.99,
+      "price": 14.99,
       "inCart": false,
       "image": "./images/cover__1.jpg"
     }
@@ -51,27 +51,27 @@
     {
       "id": "me_1",
       "type": "merch",
-      "name": "T-Shirt",
+      "name": "guard clauses",
       "count": 1,
-      "price": 669.99,
+      "price": 34.99,
       "inCart": false,
       "image": "./images/t-shirt.jpg"
     },
     {
       "id": "me_2",
       "type": "merch",
-      "name": "coffee cup",
+      "name": "destructuring",
       "count": 1,
-      "price": 999.99,
+      "price": 29.99,
       "inCart": false,
       "image": "./images/Cofee.jpg"
     },
     {
-      "id": "me_2",
+      "id": "me_3",
       "type": "merch",
-      "name": "coffee",
+      "name": "state machine",
       "count": 1,
-      "price": 999.99,
+      "price": 19.99,
       "inCart": false,
       "image": "./images/Cofee.jpg"
     }

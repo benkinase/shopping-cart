@@ -9,41 +9,40 @@
     <script src="./js/index.js" defer></script>
   </head>
   <body>
-    <div class="main__wrapper">
-      <header class="main__header">
-        <nav class="main__nav nav">
-          <ul class="nav__links">
-            <li><a href="index.html">home</a></li>
+    <header class="main__header">
+      <nav class="main__nav nav">
+        <ul class="nav__links">
+          <li><a href="index.html">home</a></li>
 
-            <li class="cart__link">
-              <div class="cart__value__container">
-                <i class="fa fa-shopping-cart"></i>
-                <span id="cart__count">0</span>
-              </div>
-            </li>
-          </ul>
-          <div class="underline__nav_items"></div>
-        </nav>
-        <h2 class="shop__name shop__name__large">Greenwall</h2>
-      </header>
+          <li class="cart__link">
+            <div class="cart__value__container">
+              <i class="fa fa-shopping-cart"></i>
+              <span id="cart__count">0</span>
+            </div>
+          </li>
+        </ul>
+        <div class="underline__nav_items"></div>
+      </nav>
+      <h2 class="shop__name shop__name__large">Greenwall</h2>
+    </header>
+    <main class="main__wrapper">
       <section class="container content__section" id="cart__container">
         <h2 class="section__header">cart</h2>
         <div class="underline__section__header"></div>
-        <div class="cart-row" id="cart-row">
-          <span class="cart-item cart-header cart-column">ITEM</span>
-          <span class="cart-price cart-header cart-column">PRICE</span>
-
-          <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+        <div class="cart__row" id="cart__row">
+          <span class="cart__item cart__header cart__column">ITEM</span>
+          <span class="cart__price cart__header cart__column">PRICE</span>
+          <span class="cart__quantity cart__header cart__column">QUANTITY</span>
         </div>
-        <div class="cart-items" id="cart__items"></div>
-        <div class="cart-total" id="cart__total">
-          <strong class="cart-total-title">Total</strong>
-          <span class="cart-total-price" id="cart-total">€0</span>
+        <div class="cart__items" id="cart__items"></div>
+        <div class="cart__total">
+          <strong class="cart__total__title">Total</strong>
+          <span class="cart__total__price" id="cart__total">€0</span>
         </div>
-        <div class="cart__pay_clear_buttons" id="cart__pay_clear_buttons">
+        <div class="cart__pay__clear__buttons" id="cart__pay__clear__buttons">
           <button
             class="btn-tertiary"
-            id="clear_cart__button"
+            id="clear__cart__button"
             type="button"
             onclick="handleClearCart()"
           >
@@ -59,7 +58,7 @@
           </button>
         </div>
       </section>
-    </div>
+    </main>
     <footer class="main__footer">
       <div class="container main__footer__container">
         <div class="shop__name__footer">
@@ -68,13 +67,13 @@
         </div>
         <ul class="nav footer__nav__links">
           <li>
-            <i class="fa fa-home"></i>
+            <i class="fa fa-home icon"></i>
           </li>
           <li>
-            <i class="fab fa-github"></i>
+            <i class="fab fa-github icon"></i>
           </li>
           <li>
-            <i class="fab fa-twitter"></i>
+            <i class="fab fa-twitter icon"></i>
           </li>
         </ul>
       </div>

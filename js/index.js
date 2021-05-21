@@ -1,7 +1,9 @@
 let PRODUCTS = {
+  loading: Boolean,
   music: [],
   merch: [],
   total: [],
+  product: {},
 };
 let CART = {
   KEY: "VERSION_1_CARTITEMS",
@@ -11,13 +13,10 @@ let CART = {
     console.log("cart running");
     //check localStorage and initialize the cartItems of CART.cartItems
     let _cartItems = localStorage.getItem(CART.KEY);
-    if (_cartItems) {
-      CART.cartItems = JSON.parse(_cartItems);
-      CART.loadLocalStorageItemCount();
-    } else {
-      CART.cartItems = [];
-      CART.cartSync();
-    }
+
+    CART.cartItems = JSON.parse(_cartItems) ?? [];
+    CART.loadLocalStorageItemCount();
+    CART.cartSync();
   },
 
   async cartSync() {
@@ -63,7 +62,7 @@ let CART = {
       return item;
     });
     CART.cartItems.forEach(async (item) => {
-      if (item.id === id && item.qty === 0) await CART.remove(id);
+      if (item.id === id && item.qty === 0) CART.remove(id);
     });
     //update localStorage
     CART.cartSync();
@@ -99,30 +98,42 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function getProducts() {
+  CART.loading = true;
   try {
     const response = await fetch("../data.json", {
       method: "GET",
       mode: "cors",
     });
     const result = await response.json();
-    return displayProducts(result);
+    displayProducts(result);
+    CART.loading = false;
+    //reRendering(result);
   } catch (error) {
     handleError(error);
   }
 }
 
-async function displayProducts(products) {
-  // get array of the diffect sections
-  PRODUCTS.music = await products.music;
-  PRODUCTS.merch = await products.merch;
-
-  // merge the arrays of he diffent product keys
+function reRendering(products) {
   let outerArray = Object.values(products);
   for (innerArray of outerArray) {
     for (obj of innerArray) {
       PRODUCTS.total.push(obj);
     }
   }
+}
+async function displayProducts(products) {
+  // get array of the diffect sections
+  PRODUCTS.music = await products.music;
+  PRODUCTS.merch = await products.merch;
+
+  // merge the arrays of he diffent product keys
+  reRendering(products);
+  // let outerArray = Object.values(products);
+  // for (innerArray of outerArray) {
+  //   for (obj of innerArray) {
+  //     PRODUCTS.total.push(obj);
+  //   }
+  // }
 
   // MUSIC PRODUCTs SECTION
   let musicProductsContainer = document.getElementById("shop__items__music");
@@ -134,12 +145,14 @@ async function displayProducts(products) {
   musicProducts?.map((p) => {
     return (musicOutput += `
     <div class="shop__item">
-      <span class="shop-item-title">${p.name}</span>
-      <img class="shop-item-image" src="${p.image}" />
-      <div class="shop-item-details">
-        <span class="shop-item-price">€${p.count * p.price}</span>
-        <button class="btn btn-primary shop-item-button" type="button"
-        onclick="addToCart(this.innerText,'${p.id}')">
+      <span class="shop__item__title">${p.name}</span>
+      <img class="shop__item__image" src="${p.image}"
+      onclick="getProduct('${p.id}')"
+      />
+      <div class="shop__item__details">
+        <span class="shop__item__price">€${p.count * p.price}</span>
+        <button class="btn-primary shop__item__button" type="button"
+        onclick="addToCart('${p.id}')">
       ${inCart(p.id) ? "item in cart" : "add to cart"}
         </button>
       </div>
@@ -160,14 +173,16 @@ async function displayProducts(products) {
     merchProducts.map((p) => {
       return (merchOutput += `
     <div class="shop__item">
-      <span class="shop-item-title">${p.name}</span>
-      <img class="shop-item-image" src="${p.image}" />
-      <div class="shop-item-details">
-        <span class="shop-item-price">€${p.price}</span>
+      <span class="shop__item__title">${p.name}</span>
+      <img class="shop__item__image" src="${p.image}"
+      onclick="getProduct('${p.id}')"
+      />
+      <div class="shop__item__details">
+        <span class="shop__item__price">€${p.price}</span>
         <button
         id='${p.id}'
-        class="btn btn-primary shop-item-button"
-        onclick="addToCart(this.id,'${p.id}')"
+        class="btn-primary shop__item__button"
+        onclick="addToCart('${p.id}')"
         >
         ${inCart(p.id) ? "item in cart" : "add to cart"}
         </button>
@@ -184,21 +199,20 @@ async function displayProducts(products) {
 async function displayCart() {
   let ProductsContainer = document.querySelector(".container");
   let cartContainer = document.getElementById("cart__items");
-  let cartTotalContainer = document.getElementById("cart-total");
+  let cartTotalContainer = document.getElementById("cart__total");
 
   let cartOutput = "";
 
   CART?.cartItems?.map((item) => {
     return (cartOutput += `
-    <div class="cart-row">
-    <div class="cart-item cart-column">
-
-        <span class="cart-item-title">${item.name}</span>
+    <div class="cart__row">
+    <div class="cart__item cart__column">
+        <span class="cart__item__title">${item.name}</span>
     </div>
-    <span class="cart-price cart-column">${item.price}</span>
-    <div class="cart-quantity cart-column">
-      <span class="cart_item__count">${item.count}</span>
-        <select id ="cart_item_change"
+    <span class="cart__price cart__column">${item.price}</span>
+    <div class="cart__quantity cart__column">
+      <span class="cart__item__count">${item.count}</span>
+        <select id ="cart__item__change"
         onchange="handleQuantityChange(this.value,'${item.id}')">
         <option ></option>
         <option value="1">1</option>
@@ -207,7 +221,7 @@ async function displayCart() {
         <option value="4">4</option>
         <option value="5">5</option>
         </select>
-      <button class="btn btn-danger"
+      <button class="btn-danger cart__item__remove"
       onclick="removeFromCart('${item.id}')">REMOVE</button>
     </div>
     </div>
@@ -218,14 +232,14 @@ async function displayCart() {
   if (CART.cartItems && cartContainer && ProductsContainer) {
     updateCartTotal();
     cartContainer.innerHTML = cartOutput;
-    cartTotalContainer.innerText = `$${CART.cartTotal}`;
+    cartTotalContainer.innerText = `€${CART.cartTotal}`;
   }
 }
 
 // ELEMENTS LOADED ON PAGE LOAD
 function loadAllInputElements() {
   // add to cart
-  const addToCartBtns = document.getElementsByClassName("shop-item-button");
+  const addToCartBtns = document.getElementsByClassName("shop__item__button");
   for (let i = 0; i < addToCartBtns.length; i++) {
     var button = addToCartBtns[i];
     button.addEventListener("click", () => {
@@ -235,27 +249,9 @@ function loadAllInputElements() {
   }
 }
 
-// handle cart section element show
-function handleCartSectionVisibility() {
-  var cartItems = document.getElementById("cart__items");
-  var cartContainer = document.getElementById("cart__pay_clear_buttons");
-
-  if (!CART.cartItems.length && cartContainer) {
-    document.getElementById("cart-row").style.background = "red";
-    document.getElementById("cart__pay_clear_buttons").style.visibility =
-      "hidden";
-  } else {
-    cartContainer.style.display = "block";
-    document.getElementById("cart__pay_clear_buttons").className =
-      "cart__pay_clear_buttons";
-    document.getElementById("cart__count").innerText =
-      cartItems.childNodes.length;
-  }
-}
-
 // MUTATIONS
 // ADD ITEM TO CART
-async function addToCart(text, id) {
+async function addToCart(id) {
   let existProduct = await CART.cartItems.find((prod) => prod.id === id);
 
   // find cproduct with id
@@ -270,8 +266,6 @@ async function addToCart(text, id) {
   } else {
     CART.cartItems.push(product);
     product.inCart = true;
-    //replaceButtonText()
-
     PRODUCTS.total = tempProducts;
 
     displayCart();
@@ -284,24 +278,25 @@ async function removeFromCart(id) {
   CART.cartSync();
   displayCart();
 }
-// INCREASE CART ITEM QUANTITY
+// INCREASE CART ITEM QUANTITY BY 1
+// Not implemented
 function increaseCartItem(id) {
-  CART.cartItems = CART.cartItems.filter((prod) => prod.id !== id);
-  CART.cartSync();
+  CART.increase(id, 1);
+  updateCartTotal();
   displayCart();
 }
 
-// DECREASE CART ITEM QUANTITY
+// DECREASE CART ITEM QUANTITY BY 1
+// Not implemented
 function reduceCartItem(id) {
-  let newCount = parseInt(e);
   CART.reduce(id, 1);
   // update cart total
   updateCartTotal();
   displayCart();
 }
-// CHANGE ITEM QUANTITY BY OPTION SELECT
+// CHANGE ITEM QUANTITY BY SELECTED VALUE
 function handleQuantityChange(e, id) {
-  // parse value to integer
+  // parse e/value to integer
   let newCount = parseInt(e);
   CART.changeQty(id, newCount);
   // update cart total
@@ -325,7 +320,7 @@ function updateCartTotal() {
     CART.cartTotal = +total.toFixed(2);
     CART.cartSync();
   } catch (error) {
-    console.log(error.message);
+    handleError(error);
   }
 }
 // CHECK IF ITEM IS IN CART
@@ -342,8 +337,31 @@ function handleItemPurchase() {
     return false;
   } else {
     CART.empty();
+
     setTimeout(() => {
-      window.location.href = "/success.html";
-    }, 2000);
+      gotoSuccess();
+    }, 500);
   }
+}
+async function delay(duration) {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(), duration);
+  });
+}
+
+function gotoHome() {
+  window.location.href = "index.html";
+}
+function gotoSuccess() {
+  window.location.href = "/success.html";
+}
+
+// PRODUCT DETAILS
+async function getProduct(id) {
+  let tempProducts = PRODUCTS.total;
+  let product = await tempProducts.find((prod) => prod.id === id);
+  PRODUCTS.product = product;
+  localStorage.setItem("p", JSON.stringify(product));
+  document.getElementById("product__detail");
+  window.location = "product.html";
 }
