@@ -29,7 +29,7 @@ body {
 
 .main__header .main__nav {
   text-align: center;
-  font-size: 1.1em;
+  font-size: 1.1rem;
   font-weight: lighter;
 }
 
@@ -61,7 +61,7 @@ body {
 
 .main__header .nav ul li a {
   padding: 0.5em 0.2em;
-  color: #f8f8f8;
+  color: #dddcd1;
   text-decoration: none;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -141,7 +141,7 @@ body {
 
 /*MAIN SECTION*/
 .content__section {
-  margin: 1em;
+  margin: 20px;
 }
 
 .container {
@@ -227,6 +227,7 @@ body {
 
 /*ITEMS DISPLAY*/
 .shop__items {
+  margin: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -308,6 +309,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 50px;
 }
 
 .cart__item {
@@ -550,30 +552,28 @@ body {
   padding: 10px 0;
   border: none;
   outline: none;
+  letter-spacing: 2px;
 }
 
 .form__container input::-webkit-input-placeholder {
   letter-spacing: 2px;
-  padding-left: 5px;
 }
 
 .form__container input:-ms-input-placeholder {
   letter-spacing: 2px;
-  padding-left: 5px;
 }
 
 .form__container input::-ms-input-placeholder {
   letter-spacing: 2px;
-  padding-left: 5px;
 }
 
 .form__container input::placeholder {
   letter-spacing: 2px;
-  padding-left: 5px;
 }
 
 .form__container input:focus {
   border: 2px, solid, #078612;
+  border: 2px solid, #078612;
 }
 
 .form__container button {
@@ -583,7 +583,7 @@ body {
   background-color: #054155;
   color: #e29e0b;
   border: none;
-  border-radius: 2px;
+  border-radius: 0px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1.5px;

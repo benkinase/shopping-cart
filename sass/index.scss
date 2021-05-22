@@ -30,7 +30,7 @@ body {
   padding-bottom: 30px;
   .main__nav {
     text-align: center;
-    font-size: 1.1em;
+    font-size: 1.1rem;
     font-weight: lighter;
     li {
       padding: 0 5%;
@@ -53,7 +53,7 @@ body {
 
     li a {
       padding: 0.5em 0.2em;
-      color: $white-night;
+      color: $darkGrey;
       text-decoration: none;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -119,7 +119,7 @@ body {
 
 /*MAIN SECTION*/
 .content__section {
-  margin: 1em;
+  margin: 20px;
 }
 
 .container {
@@ -152,6 +152,7 @@ body {
 
 /*ITEMS DISPLAY*/
 .shop__items {
+  margin: 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -209,6 +210,7 @@ body {
 
 .cart__row {
   display: flex;
+  margin-top: 50px;
 }
 
 .cart__item {
@@ -376,18 +378,18 @@ body {
     padding: 10px 0;
     border: none;
     outline: none;
+    letter-spacing: 2px;
     &::placeholder {
       letter-spacing: 2px;
-      padding-left: 5px;
     }
     &:focus {
       border: 2px, solid, $nice-green;
-      //@include border(2px, solid, $nice-green);
+      @include border(2px, solid, $nice-green);
     }
   }
   button {
     margin-top: 20px;
     font-size: 18px;
-    @include base-button(80%, 2px, $nice-blue, $nice-yellow);
+    @include base-button(80%, 0px, $nice-blue, $nice-yellow);
   }
 }
