@@ -10,7 +10,7 @@
   background-color: $bgColor;
 }
 @mixin media-box() {
-  width: 100%;
+  width: 98%;
   margin: 2rem auto;
   background-color: $primary;
   @media screen and (min-width: 750px) {

@@ -11,6 +11,7 @@
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 .main__wrapper {
@@ -19,7 +20,6 @@ body {
 }
 
 /*HEADER SECTION*/
-
 .main__header {
   background-color: $mainBlack;
   background-image: url("../images/Header\ Background.jpg");
@@ -42,7 +42,6 @@ body {
     }
   }
   .nav ul {
-    width: 100%;
     margin: 0;
     display: flex;
     align-items: center;
@@ -98,7 +97,7 @@ body {
 .shop__name {
   text-align: center;
   margin: 0;
-  font-size: 4em;
+  font-size: 4rem;
   font-family: "Poppins", san serif;
   font-weight: normal;
   color: $white-night;
@@ -116,10 +115,6 @@ body {
 //product sections
 .underline__section__header {
   @include underline(12rem, 5px, $mainGrey, 5px);
-}
-//footer
-.underline__shop__name {
-  @include underline(17rem, 7px, $nice-red, 5px);
 }
 
 /*MAIN SECTION*/
@@ -344,6 +339,15 @@ body {
         list-style: none;
       }
     }
+
+    //footer
+    .underline__shop__name {
+      @include underline(10rem, 7px, $nice-red, 5px);
+    }
+    .shop__name_footer {
+      font-size: 35px;
+      letter-spacing: 1px;
+    }
     .icon {
       color: $nice-blue;
       background-color: $nice-red;
@@ -362,6 +366,8 @@ body {
 .form__container {
   padding: 20px 5px;
   text-align: center;
+  width: 100%;
+  margin: auto;
   @include media-box();
 
   input {
@@ -379,7 +385,6 @@ body {
       //@include border(2px, solid, $nice-green);
     }
   }
-
   button {
     margin-top: 20px;
     font-size: 18px;

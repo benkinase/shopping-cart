@@ -8,6 +8,7 @@
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 .main__wrapper {
@@ -42,7 +43,6 @@ body {
 }
 
 .main__header .nav ul {
-  width: 100%;
   margin: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -112,7 +112,7 @@ body {
 .shop__name {
   text-align: center;
   margin: 0;
-  font-size: 4em;
+  font-size: 4rem;
   font-family: "Poppins", san serif;
   font-weight: normal;
   color: #f8f8f8;
@@ -136,14 +136,6 @@ body {
   width: 12rem;
   height: 5px;
   background-color: #a7b2be;
-  margin: 0.5rem auto;
-}
-
-.underline__shop__name {
-  border-radius: 5px;
-  width: 17rem;
-  height: 7px;
-  background-color: #ff3232;
   margin: 0.5rem auto;
 }
 
@@ -451,7 +443,7 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 10px;
-  width: 100%;
+  width: 98%;
   margin: 2rem auto;
   background-color: #e1e7eb;
 }
@@ -508,6 +500,19 @@ body {
   list-style: none;
 }
 
+.main__footer .main__footer__container .underline__shop__name {
+  border-radius: 5px;
+  width: 10rem;
+  height: 7px;
+  background-color: #ff3232;
+  margin: 0.5rem auto;
+}
+
+.main__footer .main__footer__container .shop__name_footer {
+  font-size: 35px;
+  letter-spacing: 1px;
+}
+
 .main__footer .main__footer__container .icon {
   color: #054155;
   background-color: #ff3232;
@@ -527,6 +532,8 @@ body {
   padding: 20px 5px;
   text-align: center;
   width: 100%;
+  margin: auto;
+  width: 98%;
   margin: 2rem auto;
   background-color: #e1e7eb;
 }

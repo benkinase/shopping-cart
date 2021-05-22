@@ -113,7 +113,7 @@ async function getProducts() {
   }
 }
 
-function reRendering(products) {
+function mergeProducts(products) {
   let outerArray = Object.values(products);
   for (innerArray of outerArray) {
     for (obj of innerArray) {
@@ -127,13 +127,7 @@ async function displayProducts(products) {
   PRODUCTS.merch = await products.merch;
 
   // merge the arrays of he diffent product keys
-  reRendering(products);
-  // let outerArray = Object.values(products);
-  // for (innerArray of outerArray) {
-  //   for (obj of innerArray) {
-  //     PRODUCTS.total.push(obj);
-  //   }
-  // }
+  mergeProducts(products);
 
   // MUSIC PRODUCTs SECTION
   let musicProductsContainer = document.getElementById("shop__items__music");
